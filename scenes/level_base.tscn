@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://do804pl5enoe4"]
 
 [ext_resource type="Texture2D" uid="uid://d13sttvpptfc8" path="res://assets/backgrounds/colored_grass.png" id="1_548ah"]
-[ext_resource type="Texture2D" uid="uid://ccqq28qphhq21" path="res://assets/other/water.png" id="4_58o6h"]
+[ext_resource type="Script" uid="uid://1a4s2gnxay5g" path="res://scripts/level_base.gd" id="1_bkdr1"]
 
 [node name="LevelBase" type="Node2D"]
+script = ExtResource("1_bkdr1")
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -17,44 +18,5 @@ position = Vector2(1024, -170)
 texture = ExtResource("1_548ah")
 centered = false
 
-[node name="Water" type="Node2D" parent="."]
-
-[node name="Water" type="Sprite2D" parent="Water"]
-position = Vector2(64, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water2" type="Sprite2D" parent="Water"]
-position = Vector2(192, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water3" type="Sprite2D" parent="Water"]
-position = Vector2(320, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water4" type="Sprite2D" parent="Water"]
-position = Vector2(448, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water5" type="Sprite2D" parent="Water"]
-position = Vector2(576, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water6" type="Sprite2D" parent="Water"]
-position = Vector2(704, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water7" type="Sprite2D" parent="Water"]
-position = Vector2(832, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water8" type="Sprite2D" parent="Water"]
-position = Vector2(960, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water9" type="Sprite2D" parent="Water"]
-position = Vector2(1088, 648)
-texture = ExtResource("4_58o6h")
-
-[node name="Water10" type="Sprite2D" parent="Water"]
-position = Vector2(1216, 648)
-texture = ExtResource("4_58o6h")
+[node name="AnimalStart" type="Marker2D" parent="."]
+position = Vector2(150, 350)
