@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf0evea2qcwbw"]
+
+[ext_resource type="Texture2D" uid="uid://3kr8467tcwum" path="res://assets/wood blocks/elementWood004.png" id="1_hqvn3"]
+[ext_resource type="Script" uid="uid://bqeg7gwye1mo3" path="res://scripts/cup.gd" id="1_v8m4r"]
+[ext_resource type="Texture2D" uid="uid://n3y714wmidhs" path="res://assets/wood blocks/elementWood015.png" id="2_kru4q"]
+[ext_resource type="Texture2D" uid="uid://bvfb3rogf6kor" path="res://assets/wood blocks/elementWood053.png" id="3_v8m4r"]
+[ext_resource type="Texture2D" uid="uid://pidhnlre761g" path="res://assets/wood blocks/elementWood042.png" id="4_kjo86"]
+[ext_resource type="Texture2D" uid="uid://bmlhj1hxeyhnw" path="res://assets/wood blocks/elementWood012.png" id="5_ersq7"]
+[ext_resource type="Texture2D" uid="uid://bnsolem676aco" path="res://assets/wood blocks/elementWood047.png" id="6_eg6om"]
+[ext_resource type="AudioStream" uid="uid://d2nwn35hstvln" path="res://assets/audio/vanish.wav" id="7_kru4q"]
+
+[sub_resource type="Animation" id="Animation_n7rba"]
+resource_name = "vanish"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WoodBlocks:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WoodBlocks/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_v8m4r"), ExtResource("1_hqvn3"), ExtResource("4_kjo86")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WoodBlocks/Sprite2D2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_v8m4r"), ExtResource("1_hqvn3"), ExtResource("4_kjo86")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WoodBlocks/Sprite2D3:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_ersq7"), ExtResource("2_kru4q"), ExtResource("6_eg6om")]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sound")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_kru4q")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6anhe"]
+_data = {
+&"vanish": SubResource("Animation_n7rba")
+}
+
+[node name="Cup" type="StaticBody2D"]
+script = ExtResource("1_v8m4r")
+
+[node name="WoodBlocks" type="Node2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="WoodBlocks"]
+position = Vector2(-72, -68)
+texture = ExtResource("3_v8m4r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="WoodBlocks"]
+position = Vector2(72, -68)
+texture = ExtResource("3_v8m4r")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="WoodBlocks"]
+texture = ExtResource("5_ersq7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-53, -52, -55, 19, 55, 18, 53, -52, 19, -18, -18, -17)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6anhe")
+}
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

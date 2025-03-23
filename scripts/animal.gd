@@ -89,6 +89,7 @@ func start_release() -> void:
 	launch_sound.play()
 	freeze = false
 	apply_central_impulse(calculate_impulse())
+	SignalHub.emit_on_attempt_made()
 
 
 func update_state() -> void:
@@ -125,8 +126,13 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_sleeping_state_changed() -> void:
-	pass # Replace with function body.
+	if sleeping:
+		for body in get_colliding_bodies():
+			if body is Cup:
+				body.die()
+		call_deferred("die")
 
 
-func _on_body_entered(_body: Node) -> void:
-	pass # Replace with function body.
+func _on_body_entered(body: Node) -> void:
+	if body is Cup and kick_sound.playing == false:
+		kick_sound.play()

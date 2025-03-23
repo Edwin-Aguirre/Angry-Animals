@@ -34,6 +34,7 @@ texture = ExtResource("2_ieass")
 offset = Vector2(150, 0)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -116.0
 offset_right = 204.0
