@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://dywkg1simgs5b"]
+
+[ext_resource type="Texture2D" uid="uid://doflre03uwbci" path="res://assets/ui/panel_beige.png" id="1_hrusj"]
+[ext_resource type="LabelSettings" uid="uid://bgwwgoyg6mfh" path="res://resources/level_button.tres" id="2_6g3el"]
+[ext_resource type="Script" uid="uid://cgm538ltou81w" path="res://scripts/level_button.gd" id="2_ium1h"]
+[ext_resource type="LabelSettings" uid="uid://bv8brf6bi0upm" path="res://resources/level_button_score_label.tres" id="3_ium1h"]
+
+[node name="LevelButton" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(50, 50)
+texture_normal = ExtResource("1_hrusj")
+script = ExtResource("2_ium1h")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "3"
+label_settings = ExtResource("2_6g3el")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "1000"
+label_settings = ExtResource("3_ium1h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

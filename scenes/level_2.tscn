@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b55y4fh0ijpvn"]
+
+[ext_resource type="PackedScene" uid="uid://do804pl5enoe4" path="res://scenes/level_base.tscn" id="1_3bmlt"]
+[ext_resource type="Texture2D" uid="uid://bsddum3jsn8s4" path="res://assets/backgrounds/colored_shroom.png" id="2_jm1iu"]
+[ext_resource type="LabelSettings" uid="uid://1mw0qi1dmah5" path="res://resources/level2_attempt.tres" id="3_pbc48"]
+[ext_resource type="PackedScene" uid="uid://cf0evea2qcwbw" path="res://scenes/cup.tscn" id="4_eqxsl"]
+
+[node name="Level2" instance=ExtResource("1_3bmlt")]
+
+[node name="Background" parent="Background" index="0"]
+texture = ExtResource("2_jm1iu")
+
+[node name="Background2" parent="Background" index="1"]
+texture = ExtResource("2_jm1iu")
+
+[node name="LevelLabel" parent="CanvasLayer/GameUI/MarginContainer/VBLevelInfo" index="0"]
+label_settings = ExtResource("3_pbc48")
+
+[node name="AttemptLabel" parent="CanvasLayer/GameUI/MarginContainer/VBLevelInfo" index="1"]
+label_settings = ExtResource("3_pbc48")
+
+[node name="Cup" parent="." index="4" instance=ExtResource("4_eqxsl")]
+position = Vector2(394, 421)
+
+[node name="Cup2" parent="." index="5" instance=ExtResource("4_eqxsl")]
+position = Vector2(661, 324)
+
+[editable path="CanvasLayer/GameUI"]

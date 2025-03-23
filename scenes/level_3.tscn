@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpxplow1fvdae"]
+
+[ext_resource type="PackedScene" uid="uid://do804pl5enoe4" path="res://scenes/level_base.tscn" id="1_70nk6"]
+[ext_resource type="Texture2D" uid="uid://cgb6l7tyry6y" path="res://assets/backgrounds/colored_desert.png" id="2_h23n6"]
+[ext_resource type="LabelSettings" uid="uid://b7nd862pbo8dg" path="res://resources/level3_attempt.tres" id="3_uwxec"]
+[ext_resource type="PackedScene" uid="uid://cf0evea2qcwbw" path="res://scenes/cup.tscn" id="4_1pn4d"]
+
+[node name="Level3" instance=ExtResource("1_70nk6")]
+
+[node name="Background" parent="Background" index="0"]
+texture = ExtResource("2_h23n6")
+
+[node name="Background2" parent="Background" index="1"]
+texture = ExtResource("2_h23n6")
+
+[node name="LevelLabel" parent="CanvasLayer/GameUI/MarginContainer/VBLevelInfo" index="0"]
+label_settings = ExtResource("3_uwxec")
+
+[node name="AttemptLabel" parent="CanvasLayer/GameUI/MarginContainer/VBLevelInfo" index="1"]
+label_settings = ExtResource("3_uwxec")
+
+[node name="Cup" parent="." index="4" instance=ExtResource("4_1pn4d")]
+position = Vector2(348, 444)
+
+[node name="Cup2" parent="." index="5" instance=ExtResource("4_1pn4d")]
+position = Vector2(618, 262)
+
+[node name="Cup3" parent="." index="6" instance=ExtResource("4_1pn4d")]
+position = Vector2(1000, 470)
+
+[editable path="CanvasLayer/GameUI"]
