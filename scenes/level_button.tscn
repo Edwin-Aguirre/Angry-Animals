@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dywkg1simgs5b"]
+[gd_scene load_steps=6 format=3 uid="uid://dywkg1simgs5b"]
 
 [ext_resource type="Texture2D" uid="uid://doflre03uwbci" path="res://assets/ui/panel_beige.png" id="1_hrusj"]
 [ext_resource type="LabelSettings" uid="uid://bgwwgoyg6mfh" path="res://resources/level_button.tres" id="2_6g3el"]
 [ext_resource type="Script" uid="uid://cgm538ltou81w" path="res://scripts/level_button.gd" id="2_ium1h"]
 [ext_resource type="LabelSettings" uid="uid://bv8brf6bi0upm" path="res://resources/level_button_score_label.tres" id="3_ium1h"]
+[ext_resource type="Texture2D" uid="uid://gl6vbxpifx6b" path="res://assets/other/starBronze.png" id="8_a8iiq"]
 
 [node name="LevelButton" type="TextureButton"]
 anchors_preset = 8
@@ -46,6 +47,10 @@ text = "1000"
 label_settings = ExtResource("3_ium1h")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Star" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(50, -50)
+texture = ExtResource("8_a8iiq")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
