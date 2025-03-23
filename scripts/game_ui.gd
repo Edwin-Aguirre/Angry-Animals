@@ -29,3 +29,4 @@ func cup_destroyed(remaining_cups: int) -> void:
 	if remaining_cups == 0:
 		vb_level_complete.show()
 		music.play()
+		ScoreManager.set_score_for_levels(ScoreManager.level_selected, attempts)

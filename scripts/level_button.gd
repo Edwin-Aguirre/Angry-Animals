@@ -2,12 +2,16 @@ extends TextureButton
 
 
 @export var level_number: String = "1"
+
+
 @onready var level_label: Label = $MarginContainer/VBoxContainer/LevelLabel
+@onready var score_label: Label = $MarginContainer/VBoxContainer/ScoreLabel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level_label.text = level_number
+	score_label.text = str(ScoreManager.get_level_best(level_number))
 
 
 func _on_mouse_entered() -> void:

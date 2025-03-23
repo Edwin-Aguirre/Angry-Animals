@@ -55,9 +55,9 @@ label_settings = ExtResource("2_u001w")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PressSpaceLabel" type="Label" parent="MarginContainer/VBLevelComplete"]
+[node name="PressEscapeLabel" type="Label" parent="MarginContainer/VBLevelComplete"]
 layout_mode = 2
-text = "Press   Space"
+text = "Press   Escape"
 label_settings = ExtResource("3_u2dgd")
 horizontal_alignment = 1
 vertical_alignment = 1
